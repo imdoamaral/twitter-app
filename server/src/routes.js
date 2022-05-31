@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const authenticate = require('./auth');
 const User = require('./models/User');
 const Tweet = require('./models/Tweet');
-const { send } = require('express/lib/response');
 
 const router = new Router();
 
@@ -149,6 +148,55 @@ router.put('/tweets/:id', authenticate, async (req, res, next) => {
     catch (err) {
         res.status(400);
         next(err);
+    }
+});
+
+// Encontrar usuarios
+router.get('/users', authenticate, async (req, res, next) => {
+    try {
+        const users = await User.find();
+
+        if (!users) {
+            return res.status(400).send({ message: 'Não foi possível encontrar usuários.' });
+        }
+
+        res.status(200).send(users.map(user => ({
+            _id: user.id,
+            username: user.username
+        })))
+    } catch (error) {
+        res.status(400);
+        next(error);
+    }
+});
+
+// Encontrar todos os tweets
+router.get('/tweets', authenticate, async (req, res, next) => {
+    try {
+        const tweets = await Tweet.find();
+        res.status(200).send(tweets);
+    } catch (error) {
+        res.status(400);
+        next(error);
+    }
+});
+
+// Encontrar tweet especifico
+router.get('/tweets/:id', authenticate, async (req, res, next) => {
+    const { id } = req.params;
+
+    try {
+        const tweet = await Tweet.findById({ _id: id });
+
+        if(!tweet) {
+            res.status(400).send({ error: 'Tweet não encontrado' });
+        }
+
+        res.status(200).send(tweet);
+        
+    } catch (error) {
+        res.status(400);
+        next(error);
     }
 });
 
