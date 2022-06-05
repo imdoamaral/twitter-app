@@ -5,7 +5,7 @@ export default function AuthRoute(props) {
   const navigation = useNavigate();
 
   if (!localStorage.getItem("SESSION_TOKEN")) {
-    return navigation(",,/");
+    return navigation("../");
     return null;
   }
 

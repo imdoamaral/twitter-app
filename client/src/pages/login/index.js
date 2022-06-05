@@ -30,7 +30,7 @@ export default function Login() {
     
     console.log(jwt.decode(response.data.token));
 
-    return navigation(",,/home");
+    return navigation("../home");
     } catch (e) {
       console.error(e);
 
