@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import jwt from "jsonwebtoken";
 
 import Layout from "../../components/layout";
-import { Container, Content, Logo, Input, Button,ErrorWarning } from "./styles";
-import thoughtsicon from '../../../src/img/thoughtsicon.png';
+import { Container, Content, Input, Button,ErrorWarning } from "./styles";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -14,7 +12,6 @@ export default function Login() {
 
   const navigation = useNavigate();
 
-  console.log({username, password});
   const handleLogin = async event => {
       event.preventDefault();
 
@@ -27,8 +24,6 @@ export default function Login() {
     });
 
     localStorage.setItem("SESSION_TOKEN", response.data.token); 
-    
-    console.log(jwt.decode(response.data.token));
 
     return navigation("../home");
     } catch (e) {

@@ -10,9 +10,7 @@ export default function Tweet(props) {
     const fetchUsername = async () => {
       try {
         const token = localStorage.getItem("SESSION_TOKEN");
-
-        const response = await axios.get(
-          `${process.env.REACT_APP_SERVER_URL}/users/${props.owner}`,
+        const response = await axios.get("http://localhost:3333/users/{props.owner}",
           {
             headers: { "auth-token": token }
           }
@@ -29,14 +27,11 @@ export default function Tweet(props) {
   
   return (
     <Container>
-      <span>{props.username}</span>
+      <span>{props.owner}</span>
       <p>{props.content}</p>
-
       <div>
         <span>{props.likes}</span>
-        <LikeButton>
-          Like
-        </LikeButton>
+        <LikeButton>Like</LikeButton>
       </div>
     </Container>
   );

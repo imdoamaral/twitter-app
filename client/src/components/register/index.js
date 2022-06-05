@@ -12,7 +12,6 @@ export default function Register() {
   
   const navigation = useNavigate();
 
-  console.log({username, password});
   const handleRegister = async event => {
   event.preventDefault();
 
@@ -34,7 +33,6 @@ export default function Register() {
     }
   };
 
-  console.log(username,password);
   return (
     <Layout>
       <Container>
