@@ -66,13 +66,3 @@ export const ErrorWarning = styled.div`
   border-radius: 20px;
   padding: 0.5rem;
 `;
-
-export const Logo = styled.div`
-  max-width: 150px;
-  
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
-`;

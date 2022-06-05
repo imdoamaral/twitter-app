@@ -13,8 +13,8 @@ export default function Home() {
       try {
         const token = localStorage.getItem("SESSION_TOKEN");
 
-        const tweetResponse = await axios.get(
-          `${process.env.REACT_APP_SERVER_URL}/tweets`,
+
+        const tweetResponse = await axios.get("http://localhost:3333/tweets",
           {
             headers: { "auth-token": token }
           }
@@ -22,8 +22,7 @@ export default function Home() {
 
         const tweetUsers = await Promise.all(
           tweetResponse.data.map(async tweet => {
-            const user = await axios.get(
-              `${process.env.REACT_APP_SERVER_URL}/users/${tweet.owner}`,
+            const user = await axios.get("http://localhost:3333/users/{tweet.owner}",
               {
                 headers: { "auth-token": token }
               }
@@ -42,7 +41,7 @@ export default function Home() {
 
     fetchTweets();
   }, []);
-  
+
   const handleLike = (ownerID, tweetID) => {
     console.log(ownerID, tweetID);
 
@@ -86,14 +85,8 @@ export default function Home() {
 
   return (
     <Layout>
-      <TweetForm />
-      <TweetList
-        tweets={[
-          { content: "Tweet 1" },
-          { content: "Tweet 2" },
-          { content: "Tweet 3" }
-        ]}
-      />
+      <TweetForm onCreateTweet={onCreateTweet} />
+      <TweetList tweets={tweets} onLike={handleLike} />
     </Layout>
   );
 }

@@ -27,7 +27,7 @@ export const Container = styled.div`
       font-weight: 600;
       cursor: pointer;
       &:hover {
-        background: #1da1f2;
+        background: #98243c;
         color: white;
       }
     }
@@ -36,7 +36,7 @@ export const Container = styled.div`
 
 export const LikeButton = styled.button`
   background: white;
-  border: 1px solid #1da1f2;
+  border: 1px solid #98243c;
   padding: 0.4rem 1rem;
   border-radius: 20px;
   color: #1da1f2;
@@ -44,7 +44,7 @@ export const LikeButton = styled.button`
   cursor: pointer;
   margin-left: 0.5rem;
   &:hover {
-    background: #1da1f2;
+    background: #98243c;
     color: white;
   }
 `;
