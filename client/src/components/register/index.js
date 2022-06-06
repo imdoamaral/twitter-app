@@ -58,7 +58,7 @@ export default function Register() {
           </div>
           <div>
             <a href="/">Cancelar</a>
-            <Button onClick={handleRegister} type="submit">Register</Button>
+            <Button onClick={handleRegister} type="submit">Cadastrar</Button>
           </div>
         </Content>
       </Container>

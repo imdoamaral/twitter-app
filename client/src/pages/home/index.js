@@ -12,19 +12,17 @@ export default function Home() {
     const fetchTweets = async () => {
       try {
         const token = localStorage.getItem("SESSION_TOKEN");
-
-
         const tweetResponse = await axios.get("http://localhost:3333/tweets",
           {
-            headers: { "auth-token": token }
+            headers: { "auth-token": token}
           }
         );
 
         const tweetUsers = await Promise.all(
           tweetResponse.data.map(async tweet => {
-            const user = await axios.get("http://localhost:3333/users/{tweet.owner}",
+            const user = await axios.get("http://localhost:3333/users",
               {
-                headers: { "auth-token": token }
+                headers: { "auth-token": token}
               }
             );
 
@@ -67,13 +65,12 @@ export default function Home() {
     try {
       const token = localStorage.getItem("SESSION_TOKEN");
 
-      const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/tweets`,
+      const response = await axios.post("http://localhost:3333/tweets",
         {
           content
         },
         {
-          headers: { "auth-token": token }
+          headers: { "auth-token": token}
         }
       );
 

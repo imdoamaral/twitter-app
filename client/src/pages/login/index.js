@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import Layout from "../../components/layout";
 import { Container, Content, Input, Button,ErrorWarning } from "./styles";
 
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +24,7 @@ export default function Login() {
         password
     });
 
-    localStorage.setItem("SESSION_TOKEN", response.data.token); 
+    localStorage.setItem("SESSION_TOKEN", response.data); 
 
     return navigation("../home");
     } catch (e) {

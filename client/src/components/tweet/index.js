@@ -10,13 +10,13 @@ export default function Tweet(props) {
     const fetchUsername = async () => {
       try {
         const token = localStorage.getItem("SESSION_TOKEN");
-        const response = await axios.get("http://localhost:3333/users/{props.owner}",
+        const response = await axios.get("http://localhost:3333/users",
           {
-            headers: { "auth-token": token }
+            headers: { "auth-token": token}
           }
         );
 
-        setUsername(response.data.username);
+        /*setUsername(response.data.username);*/
       } catch (error) {
         console.error(error);
       }

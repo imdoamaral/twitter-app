@@ -21,7 +21,7 @@ export const LikeButton = styled.button`
   color: #98243c;
   font-weight: 600;
   cursor: pointer;
-  margin-left: 0.5rem;
+  margin-left: 0.2rem;
   &:hover {
     background: #98243c;
     color: white;
