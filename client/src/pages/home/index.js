@@ -3,7 +3,7 @@ import axios from "axios";
 
 import TweetForm from "../../components/tweet-form";
 import TweetList from "../../components/tweet-list";
-import Layout from "../../components/layout";
+import { Container, Content } from "./styles";
 
 export default function Home() {
   const [tweets, setTweets] = useState([]);
@@ -81,9 +81,11 @@ export default function Home() {
   };
 
   return (
-    <Layout>
-      <TweetForm onCreateTweet={onCreateTweet} />
-      <TweetList tweets={tweets} onLike={handleLike} />
-    </Layout>
+    <Container>
+      <Content>
+        <TweetForm onCreateTweet={onCreateTweet} />
+        <TweetList tweets={tweets} onLike={handleLike} />
+      </Content>
+    </Container>
   );
 }

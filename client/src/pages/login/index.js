@@ -4,6 +4,8 @@ import {useNavigate} from "react-router-dom";
 
 import Layout from "../../components/layout";
 import { Container, Content, Input, Button,ErrorWarning } from "./styles";
+import Logo from "../../img/Logo.jpg"
+
 
 
 export default function Login() {
@@ -41,6 +43,7 @@ export default function Login() {
 
 return (
   <Layout>
+    <img src ={Logo} alt = "Thoughts: Sempre uma nova ideia" />
     <Container>
       <Content>
         {error && <ErrorWarning>{error}</ErrorWarning>}
