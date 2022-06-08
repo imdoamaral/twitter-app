@@ -32,6 +32,13 @@ export const Container = styled.div`
       }
     }
   }
+  
+  a {
+    padding: 5px;
+    text-decoration: none;
+    color: #98243c;
+    cursor: pointer;
+  }
 `;
 
 export const LikeButton = styled.button`

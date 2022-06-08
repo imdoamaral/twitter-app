@@ -38,6 +38,7 @@ export default function TweetForm() {
         rows={4}
       />
       <div>
+        <a href="/">Voltar</a>
         <button onClick={handleTweet}>Enviar</button>
       </div>
     </Container>
